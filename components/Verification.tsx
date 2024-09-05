@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 
-import gif from "@/assets/fox-gif.gif";
+import Gif from "@/assets/fox-gif.gif";
 import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import {
@@ -44,8 +44,6 @@ export default function Verification() {
     setSeedDataDeletion,
     setSelectedAccountId,
   } = UserStore();
-
-  console.log("page rendered");
 
   useEffect(() => {
     CheckUserExist().then((data) => {
@@ -90,9 +88,7 @@ export default function Verification() {
     if (!isUserExist) {
       setLoading(true);
       const data = await createUser(password);
-      console.log({
-        data,
-      });
+
       toast({
         description: "Success",
       });
@@ -110,8 +106,6 @@ export default function Verification() {
       });
       return;
     }
-
-    console.log(password);
 
     if (!password) {
       toast({
@@ -140,11 +134,7 @@ export default function Verification() {
     setPassword("");
   };
 
-  console.log(isUserExist);
-
   if (isUserVerified) {
-    console.log("user verified");
-
     return <WalletManager />;
   }
 
@@ -158,7 +148,7 @@ export default function Verification() {
       </CardHeader>
       <CardContent>
         <Image
-          src={gif}
+          src={Gif}
           alt="gif"
           width={300}
           className="bg-transparent border-none outline-none overflow-hidden"
