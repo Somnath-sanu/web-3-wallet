@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 
-import Gif from "../assets/fox-gif.gif";
+
 import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import {
@@ -148,7 +148,7 @@ export default function Verification() {
       </CardHeader>
       <CardContent>
         <Image
-          src={Gif}
+          src={`/fox-gif.gif`}
           alt="gif"
           width={300}
           className="bg-transparent border-none outline-none overflow-hidden"
