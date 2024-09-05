@@ -151,6 +151,7 @@ export default function Verification() {
           src={`/fox-gif.gif`}
           alt="gif"
           width={300}
+          height={300}
           className="bg-transparent border-none outline-none overflow-hidden"
         />
         <form>
