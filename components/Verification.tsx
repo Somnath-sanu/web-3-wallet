@@ -142,7 +142,7 @@ export default function Verification() {
     <Card className="w-[350px] h-[550px] mx-auto shadow-lg">
       <CardHeader>
         <CardTitle className="text-center text-2xl text-slate-700">
-          Shanu's Wallet
+          Shanu&apos;s Wallet
         </CardTitle>
         <Separator className="mt-2" />
       </CardHeader>

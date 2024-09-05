@@ -45,7 +45,7 @@ export function SheetUI({
   console.log(accountData);
 
   async function handleClick() {
-    let len = seedData.length;
+    const len = seedData.length;
 
     const data = await Seed(len + 1, mnemonic.join(" "));
     setAccountData((prev) => [...prev, { ...data, id: len + 1 }]);
