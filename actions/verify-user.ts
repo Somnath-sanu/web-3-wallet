@@ -7,7 +7,7 @@ import { cookies } from "next/headers";
 export const CheckUserExist = async () => {
   const userId = cookies().get("userId")?.value as unknown;
 
-  console.log(userId);
+  
 
   if (!userId) {
     return false;
