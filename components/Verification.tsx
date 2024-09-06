@@ -89,6 +89,7 @@ export default function Verification() {
       setLoading(false);
       setPassword("");
       setConfirmPassword("");
+      window.location.reload();
     }
   };
 

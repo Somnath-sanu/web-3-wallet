@@ -4,6 +4,15 @@ import { prisma } from "@/lib/prisma";
 
 import { cookies } from "next/headers";
 
+import { generateMnemonic, mnemonicToSeedSync } from "bip39";
+import nacl from "tweetnacl";
+import { derivePath } from "ed25519-hd-key";
+// import { Keypair } from "@solana/web3.js";
+import bs58 from "bs58";
+
+import { revalidatePath } from "next/cache";
+
+
 export const CheckUserExist = async () => {
   const userId = cookies().get("userId")?.value as unknown;
 
@@ -20,8 +29,9 @@ export const CheckUserExist = async () => {
   if (!isUser) {
     return false;
   }
-
+  revalidatePath("/")
   return true;
+  
 };
 
 export const createUser = async (password: string) => {
@@ -32,7 +42,7 @@ export const createUser = async (password: string) => {
       },
     });
 
-    await cookies().set("userId", user.id);
+    cookies().set("userId", user.id);
 
     return {
       id: user.id,
@@ -40,7 +50,8 @@ export const createUser = async (password: string) => {
     };
   } catch (error) {
     console.log(error);
-
+    
+    revalidatePath("/")
     return {
       status: 500,
     };
@@ -76,11 +87,7 @@ export const checkPassword = async (password: string) => {
 //   });
 // };
 
-import { generateMnemonic, mnemonicToSeedSync } from "bip39";
-import nacl from "tweetnacl";
-import { derivePath } from "ed25519-hd-key";
-// import { Keypair } from "@solana/web3.js";
-import bs58 from "bs58";
+
 
 export async function Seed(id: number, mnemonic: string) {
   const seed = mnemonicToSeedSync(mnemonic);
