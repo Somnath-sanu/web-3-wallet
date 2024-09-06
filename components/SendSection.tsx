@@ -1,3 +1,5 @@
+"use client"
+
 export function SendSection() {
   return (
     <div className="flex gap-6 justify-center w-full items-center flex-wrap">

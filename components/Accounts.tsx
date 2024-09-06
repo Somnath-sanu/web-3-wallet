@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Separator } from "./ui/separator";
-import { Seed } from "@/actions/seedParse";
+
 import { UserStore } from "@/lib/store";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "./ui/input";

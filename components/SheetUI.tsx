@@ -17,7 +17,7 @@ import { MoveLeftIcon, PlusCircle } from "lucide-react";
 import { Button } from "./ui/button";
 import React, { useState } from "react";
 import { UserStore } from "@/lib/store";
-import { Seed } from "@/actions/seedParse";
+import { Seed } from "./actions";
 import { Accounts } from "./Accounts";
 import { ScrollArea } from "./ui/scroll-area";
 

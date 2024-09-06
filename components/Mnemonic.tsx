@@ -13,7 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Button } from "./ui/button";
 import { UserStore } from "@/lib/store";
 import { Accounts } from "./Accounts";
-import { Seed } from "@/actions/seedParse";
+import { Seed } from "./actions";
 
 export const Mnemonic = ({
   onContinue,
