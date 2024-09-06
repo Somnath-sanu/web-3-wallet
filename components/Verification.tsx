@@ -17,7 +17,7 @@ import { useToast } from "@/hooks/use-toast";
 import { checkPassword, CheckUserExist, createUser } from "./actions";
 import { Loader2 } from "lucide-react";
 import { UserStore } from "@/lib/store";
-import { Mnemonic } from "./Mnemonic";
+
 import { WalletManager } from "./WalletManager";
 
 export default function Verification() {
@@ -34,7 +34,7 @@ export default function Verification() {
     isUserVerified,
     setIsUserVerified,
     setMnemonic,
-    seedData,
+
     setSeedDataDeletion,
     setSelectedAccountId,
   } = UserStore();
@@ -52,6 +52,8 @@ export default function Verification() {
       }
     });
   }, [loading]);
+
+  console.log("isUserExist", isUserExist);
 
   const handleSubmitForNewUser = async () => {
     if (!password || !confirmPassword) {
@@ -89,7 +91,6 @@ export default function Verification() {
       setLoading(false);
       setPassword("");
       setConfirmPassword("");
-      window.location.reload();
     }
   };
 

@@ -12,7 +12,6 @@ import bs58 from "bs58";
 
 import { revalidatePath } from "next/cache";
 
-
 export const CheckUserExist = async () => {
   const userId = cookies().get("userId")?.value as unknown;
 
@@ -29,12 +28,13 @@ export const CheckUserExist = async () => {
   if (!isUser) {
     return false;
   }
-  revalidatePath("/")
+  revalidatePath("/");
   return true;
-  
 };
 
 export const createUser = async (password: string) => {
+  const userId = cookies().get("userId")?.value;
+
   try {
     const user = await prisma.user.create({
       data: {
@@ -50,8 +50,8 @@ export const createUser = async (password: string) => {
     };
   } catch (error) {
     console.log(error);
-    
-    revalidatePath("/")
+
+    revalidatePath("/");
     return {
       status: 500,
     };
@@ -86,8 +86,6 @@ export const checkPassword = async (password: string) => {
 //     return contents;
 //   });
 // };
-
-
 
 export async function Seed(id: number, mnemonic: string) {
   const seed = mnemonicToSeedSync(mnemonic);
