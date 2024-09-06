@@ -23,14 +23,14 @@ import { WalletManager } from "./WalletManager";
 export default function Verification() {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [isUserExist ,setIsUserExist] = useState(false);
 
   const [loading, setLoading] = useState<boolean>(false);
 
   const { toast } = useToast();
 
   const {
-    isUserExist,
-    setIsUserExist,
+    
     isUserVerified,
     setIsUserVerified,
     setMnemonic,
@@ -91,6 +91,7 @@ export default function Verification() {
       setLoading(false);
       setPassword("");
       setConfirmPassword("");
+      
     }
   };
 
