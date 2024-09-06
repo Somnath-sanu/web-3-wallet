@@ -51,7 +51,7 @@ export default function Verification() {
         setIsUserExist(data);
       }
     });
-  }, [loading, setIsUserExist, setIsUserVerified]);
+  }, [loading]);
 
   const handleSubmitForNewUser = async () => {
     if (!password || !confirmPassword) {
